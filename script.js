@@ -21,8 +21,8 @@ function navigateTo(sectionId) {
         // Mostrar la nueva sección
         section.classList.add('active');
 
-        // Actualizar la barra de búsqueda con la ruta
-        updateSearchBar(sectionId);
+        // Actualizar la barra de búsqueda con la ruta actual
+        document.getElementById('path-display').textContent = `/home/${sectionId}`;
 
         // Actualizar el historial
         if (currentIndex < historyStack.length - 1) {
@@ -34,8 +34,8 @@ function navigateTo(sectionId) {
 }
 
 // Botones de navegación adelante y atrás
-const backButton = document.querySelector('.nav-button:nth-child(1)');
-const forwardButton = document.querySelector('.nav-button:nth-child(2)');
+const backButton = document.getElementById('back-button');
+const forwardButton = document.getElementById('forward-button');
 
 backButton.addEventListener('click', () => {
     if (currentIndex > 0) {
@@ -51,6 +51,19 @@ forwardButton.addEventListener('click', () => {
     }
 });
 
+function toggleDetails(detailId) {
+    const detailElement = document.getElementById(detailId);
+    const allDetails = document.querySelectorAll('.details');
+
+    allDetails.forEach(detail => {
+        if (detail !== detailElement) {
+            detail.classList.remove('active');
+        }
+    });
+
+    detailElement.classList.toggle('active');
+}
+
 // Función para inicializar la vista en el primer acceso o recarga
 function initializeView() {
     if (historyStack.length === 0) {  // Si no hay historial, carga una vista por defecto
@@ -62,26 +75,9 @@ function initializeView() {
 
 window.onload = initializeView;
 
-function toggleDetails(detailsId) {
-    let details = document.getElementById(detailsId);
-    let allDetails = document.querySelectorAll('.details');
-    
-    // Ocultar todas las tarjetas de detalles
-    allDetails.forEach(detail => {
-        if (detail.id !== detailsId) {
-            detail.classList.remove('active');
-        }
+// Cerrar documento
+document.querySelectorAll('.document-button.close').forEach(button => {
+    button.addEventListener('click', function() {
+        this.closest('.details').classList.remove('active');
     });
-
-    // Alternar la visibilidad de la tarjeta seleccionada
-    if (details.classList.contains('active')) {
-        details.classList.remove('active');
-    } else {
-        details.classList.add('active');
-    }
-}
-
-function updateSearchBar(sectionId) {
-    const searchBar = document.querySelector('.search-bar');
-    searchBar.value = `Ruta: ${sectionId.replace(/-/g, ' ')}`;
-}
+});

@@ -10,14 +10,14 @@
 </head>
 <body>
     <div class="cv-header">
-        ____________________________ Curriculum Vitae ____________________________
+        Curriculum Vitae
     </div>
     <div id="file-manager">
         <div id="navigation-bar">
             <div id="nav-buttons">
-                <button class="nav-button"><i class="fa fa-arrow-left"></i></button>
-                <button class="nav-button"><i class="fa fa-arrow-right"></i></button>
-                <input type="text" class="search-bar" placeholder="Buscar o escribir la ruta">
+                <button class="nav-button" id="back-button"><i class="fa fa-arrow-left"></i></button>
+                <button class="nav-button" id="forward-button"><i class="fa fa-arrow-right"></i></button>
+                <div class="search-bar" id="path-display">/home</div>
                 <button class="settings-button">&#8942;</button> <!-- Tres puntos verticales -->
             </div>
             <div class="window-controls">
@@ -29,223 +29,220 @@
         <div id="main-area">
             <div id="sidebar">
                 <ul>
-                    <li><a href="#Personal"><i class="fa fa-folder"></i> Información Personal</a></li>
-                    <li><a href="#Habilidades"><i class="fa fa-folder"></i> Habilidades</a></li>
-                    <li><a href="#Idiomas"><i class="fa fa-folder"></i> Idiomas</a></li>
-                    <li><a href="#Experiencia"><i class="fa fa-folder"></i> Experiencia</a></li>
-                    <li><a href="#Educacion"><i class="fa fa-folder"></i> Educación</a></li>
+                    <li><a href="#personal" onclick="navigateTo('personal')"><i class="fa fa-folder"></i> Información Personal</a></li>
+                    <li><a href="#habilidades" onclick="navigateTo('habilidades')"><i class="fa fa-folder"></i> Habilidades</a></li>
+                    <li><a href="#idiomas" onclick="navigateTo('idiomas')"><i class="fa fa-folder"></i> Idiomas</a></li>
+                    <li><a href="#experiencia" onclick="navigateTo('experiencia')"><i class="fa fa-folder"></i> Experiencia</a></li>
+                    <li><a href="#educacion" onclick="navigateTo('educacion')"><i class="fa fa-folder"></i> Educación</a></li>
                 </ul>
             </div>
             <div id="content">
-                <div id="Personal" class="content-section">
+                <div id="personal" class="content-section">
                     <div class="sub-folder" onclick="toggleDetails('contact-details')">
-                        <i class="fa fa-folder"></i>
+                        <i class="fa fa-file-alt"></i>
                         <span>Datos de Contacto</span>
                     </div>
                     <div class="sub-folder" onclick="toggleDetails('profile-details')">
-                        <i class="fa fa-folder"></i>
+                        <i class="fa fa-file-alt"></i>
                         <span>Perfil</span>
                     </div>
                     <div id="contact-details" class="details">
-                        <div class="card">
-                            <div class="card-header">
-                                <i class="fa fa-address-card"></i> Datos de Contacto
+                        <div class="document-header">
+                            <span>Datos de Contacto</span>
+                            <button class="document-button close"></button>
+                        </div>
+                        <div class="document-body">
+                            <div class="info-item">
+                                <i class="fa fa-id-card"></i> <span>Nombre: Alejandro Valdivia Muñoz</span>
                             </div>
-                            <div class="card-body">
-                                <div class="info-item">
-                                    <i class="fa fa-id-card"></i> <span>Nombre: Alejandro Valdivia Muñoz</span>
-                                </div>
-                                <div class="info-item">
-                                    <i class="fa fa-envelope"></i> <span>Email: alexxvaldii01@gmail.com</span>
-                                </div>
-                                <div class="info-item">
-                                    <i class="fa fa-phone"></i> <span>Teléfono: +34 722 252 541</span>
-                                </div>
+                            <div class="info-item">
+                                <i class="fa fa-envelope"></i> <span>Email: alexxvaldii01@gmail.com</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fa fa-phone"></i> <span>Teléfono: +34 722 252 541</span>
                             </div>
                         </div>
                     </div>
                     <div id="profile-details" class="details">
-                        <div class="card">
-                            <div class="card-header">
-                                <i class="fa fa-user-circle"></i> Perfil
-                            </div>
-                            <div class="card-body">
-                                <div class="info-item">
-                                    <i class="fa fa-user-circle"></i> <span>Perfil: Ingeniero de telecomunicaciones, con experiencia en ciberseguridad y desarrollo de software</span>
-                                </div>
+                        <div class="document-header">
+                            <span>Perfil</span>
+                            <button class="document-button close"></button>
+                        </div>
+                        <div class="document-body">
+                            <div class="info-item">
+                                <i class="fa fa-user-circle"></i> <span>Ingeniero de telecomunicaciones con experiencia en ciberseguridad 
+                                    (a nivel de SOC) y en desarrollo de software. Apasionado de la tecnología y sobre todo de la ciberseguridad, 
+                                    campo en el que quiero formarme para poder ayudar en la protección de activos y de las comunicaciones.</span>
                             </div>
                         </div>
                     </div>
                 </div>
             
-                <div id="Habilidades" class="content-section">
+                <div id="habilidades" class="content-section">
                     <div class="sub-folder" onclick="toggleDetails('office-details')">
-                        <i class="fa fa-folder"></i>
+                        <i class="fa fa-file-alt"></i>
                         <span>Ofimática</span>
                     </div>
                     <div class="sub-folder" onclick="toggleDetails('tech-details')">
-                        <i class="fa fa-folder"></i>
-                        <span>Tecnologías</span>
+                        <i class="fa fa-file-alt"></i>
+                        <span>Tecnologías seguridad</span>
                     </div>
                     <div id="office-details" class="details">
-                        <div class="card">
-                            <div class="card-header">
-                                <i class="fa fa-file-alt"></i> Ofimática
+                        <div class="document-header">
+                            <span>Ofimática</span>
+                            <button class="document-button close"></button>
+                        </div>
+                        <div class="document-body">
+                            <div class="info-item">
+                                <i class="fa fa-file-excel"></i> <span>Excel</span>
                             </div>
-                            <div class="card-body">
-                                <div class="info-item">
-                                    <i class="fa fa-file-excel"></i> <span>Excel</span>
-                                </div>
-                                <div class="info-item">
-                                    <i class="fa fa-file-powerpoint"></i> <span>PowerPoint</span>
-                                </div>
-                                <div class="info-item">
-                                    <i class="fa fa-file-word"></i> <span>Word</span>
-                                </div>
+                            <div class="info-item">
+                                <i class="fa fa-file-powerpoint"></i> <span>PowerPoint</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fa fa-file-word"></i> <span>Word</span>
                             </div>
                         </div>
                     </div>
                     <div id="tech-details" class="details">
-                        <div class="card">
-                            <div class="card-header">
-                                <i class="fa fa-cogs"></i> Tecnologías
+                        <div class="document-header">
+                            <span>Tecnologías seguridad</span>
+                            <button class="document-button close"></button>
+                        </div>
+                        <div class="document-body">
+                            <div class="info-item">
+                                <i class="fa fa-shield-alt"></i> <span>Qualys</span>
                             </div>
-                            <div class="card-body">
-                                <div class="info-item">
-                                    <i class="fa fa-shield-alt"></i> <span>Qualys</span>
-                                </div>
-                                <div class="info-item">
-                                    <i class="fa fa-shield-alt"></i> <span>Sentinel</span>
-                                </div>
-                                <div class="info-item">
-                                    <i class="fa fa-shield-alt"></i> <span>Chronicle</span>
-                                </div>
+                            <div class="info-item">
+                                <i class="fa fa-shield-alt"></i> <span>Sentinel</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fa fa-shield-alt"></i> <span>Chronicle</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fa fa-shield-alt"></i> <span>QRadar</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fa fa-shield-alt"></i> <span>Cynet</span>
                             </div>
                         </div>
                     </div>
                 </div>
             
-                <div id="Idiomas" class="content-section">
+                <div id="idiomas" class="content-section">
                     <div class="sub-folder" onclick="toggleDetails('spanish-details')">
-                        <i class="fa fa-folder"></i>
+                        <i class="fa fa-file-alt"></i>
                         <span>Español</span>
                     </div>
                     <div class="sub-folder" onclick="toggleDetails('english-details')">
-                        <i class="fa fa-folder"></i>
+                        <i class="fa fa-file-alt"></i>
                         <span>Inglés</span>
                     </div>
                     <div id="spanish-details" class="details">
-                        <div class="card">
-                            <div class="card-header">
-                                <i class="fa fa-language"></i> Español
-                            </div>
-                            <div class="card-body">
-                                <div class="info-item">
-                                    <i class="fa fa-globe"></i> <span>Lengua Materna</span>
-                                </div>
+                        <div class="document-header">
+                            <span>Español</span>
+                            <button class="document-button close"></button>
+                        </div>
+                        <div class="document-body">
+                            <div class="info-item">
+                                <i class="fa fa-globe"></i> <span>Nivel de idioma: Lengua Materna</span>
                             </div>
                         </div>
                     </div>
                     <div id="english-details" class="details">
-                        <div class="card">
-                            <div class="card-header">
-                                <i class="fa fa-language"></i> Inglés
-                            </div>
-                            <div class="card-body">
-                                <div class="info-item">
-                                    <i class="fa fa-certificate"></i> <span>Nivel B1/B2 (Certificación Cambridge)</span>
-                                </div>
+                        <div class="document-header">
+                            <span>Inglés</span>
+                            <button class="document-button close"></button>
+                        </div>
+                        <div class="document-body">
+                            <div class="info-item">
+                                <i class="fa fa-certificate"></i> <span>Nivel de idioma: B1/B2 (Certificación Cambridge)</span>
                             </div>
                         </div>
                     </div>
                 </div>
             
-                <div id="Experiencia" class="content-section">
+                <div id="experiencia" class="content-section">
                     <div class="sub-folder" onclick="toggleDetails('tfg-details')">
-                        <i class="fa fa-folder"></i>
+                        <i class="fa fa-file-alt"></i>
                         <span>TFG</span>
                     </div>
                     <div class="sub-folder" onclick="toggleDetails('internship-details')">
-                        <i class="fa fa-folder"></i>
+                        <i class="fa fa-file-alt"></i>
                         <span>Prácticas Externas</span>
                     </div>
                     <div id="tfg-details" class="details">
-                        <div class="card">
-                            <div class="card-header">
-                                <i class="fa fa-project-diagram"></i> TFG
+                        <div class="document-header">
+                            <span>TFG</span>
+                            <button class="document-button close"></button>
+                        </div>
+                        <div class="document-body">
+                            <div class="info-item">
+                                <i class="fa fa-handshake"></i> <span>Colaboración con HP SCDS</span>
                             </div>
-                            <div class="card-body">
-                                <div class="info-item">
-                                    <i class="fa fa-handshake"></i> <span>Colaboración con HP SCDS</span>
-                                </div>
-                                <div class="info-item">
-                                    <i class="fa fa-certificate"></i> <span>AutoSSL: Sistema para la renovación y reemplazo de certificados SSL</span>
-                                </div>
+                            <div class="info-item">
+                                <i class="fa fa-certificate"></i> <span>AutoSSL: Sistema para la renovación y reemplazo de certificados SSL</span>
                             </div>
                         </div>
                     </div>
                     <div id="internship-details" class="details">
-                        <div class="card">
-                            <div class="card-header">
-                                <i class="fa fa-briefcase"></i> Prácticas Externas
-                            </div>
-                            <div class="card-body">
-                                <div class="info-item">
-                                    <i class="fa fa-building"></i> <span>Prácticas en el SOC de Accenture</span>
-                                </div>
+                        <div class="document-header">
+                            <span>Prácticas Externas</span>
+                            <button class="document-button close"></button>
+                        </div>
+                        <div class="document-body">
+                            <div class="info-item">
+                                <i class="fa fa-building"></i> <span>Prácticas en el SOC de Accenture</span>
                             </div>
                         </div>
                     </div>
                 </div>
             
-                <div id="Educacion" class="content-section">
+                <div id="educacion" class="content-section">
                     <div class="sub-folder" onclick="toggleDetails('engineering-details')">
-                        <i class="fa fa-folder"></i>
+                        <i class="fa fa-file-alt"></i>
                         <span>Grado</span>
                     </div>
                     <div class="sub-folder" onclick="toggleDetails('highschool-details')">
-                        <i class="fa fa-folder"></i>
+                        <i class="fa fa-file-alt"></i>
                         <span>Bachillerato</span>
                     </div>
                     <div id="engineering-details" class="details">
-                        <div class="card">
-                            <div class="card-header">
-                                <i class="fa fa-graduation-cap"></i> Grado
+                        <div class="document-header">
+                            <span>Grado</span>
+                            <button class="document-button close"></button>
+                        </div>
+                        <div class="document-body">
+                            <div class="info-item">
+                                <i class="fa fa-university"></i> <span>Ingeniería de Tecnologías de Telecomunicación</span>
                             </div>
-                            <div class="card-body">
-                                <div class="info-item">
-                                    <i class="fa fa-university"></i> <span>Ingeniería de Tecnologías de Telecomunicación</span>
-                                </div>
-                                <div class="info-item">
-                                    <i class="fa fa-university"></i> <span>Universidad de Granada</span>
-                                </div>
-                                <div class="info-item">
-                                    <i class="fa fa-graduation-cap"></i> <span>Especialidad en Telemática</span>
-                                </div>
+                            <div class="info-item">
+                                <i class="fa fa-university"></i> <span>Universidad de Granada</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fa fa-graduation-cap"></i> <span>Especialidad en Telemática</span>
                             </div>
                         </div>
                     </div>
                     <div id="highschool-details" class="details">
-                        <div class="card">
-                            <div class="card-header">
-                                <i class="fa fa-school"></i> Bachillerato
+                        <div class="document-header">
+                            <span>Bachillerato</span>
+                            <button class="document-button close"></button>
+                        </div>
+                        <div class="document-body">
+                            <div class="info-item">
+                                <i class="fa fa-school"></i> <span>Bachillerato de Ciencias Tecnológicas</span>
                             </div>
-                            <div class="card-body">
-                                <div class="info-item">
-                                    <i class="fa fa-school"></i> <span>Bachillerato de Ciencias Tecnológicas</span>
-                                </div>
-                                <div class="info-item">
-                                    <i class="fa fa-school"></i> <span>IES Laurel de la Reina de La Zubia</span>
-                                </div>
-                                <div class="info-item">
-                                    <i class="fa fa-star"></i> <span>Nota Media: 9</span>
-                                </div>
+                            <div class="info-item">
+                                <i class="fa fa-school"></i> <span>IES Laurel de la Reina de La Zubia</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fa fa-star"></i> <span>Nota Media: 9</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>           
-            
         </div>
     </div>
     <script src="script.js"></script>

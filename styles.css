@@ -1,5 +1,5 @@
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Arial', sans-serif;
     color: #ccc;
     background-color: #333;
     margin: 0;
@@ -9,7 +9,7 @@ body {
 .cv-header {
     text-align: center;
     font-size: 36px;
-    font-family: 'Roboto', cursive;
+    font-family: 'Roboto', sans-serif;
     color: #fff;
     background: linear-gradient(45deg, #ff6347, #ffa07a);
     padding: 20px;
@@ -81,10 +81,11 @@ body {
     flex-grow: 1;
     padding: 8px;
     background: #333;
-    border: none;
     color: white;
     border-radius: 5px;
     margin-right: 5px;
+    border: none; /* Quita el borde */
+    pointer-events: none; /* Deshabilita la edición */
 }
 
 .window-controls {
@@ -172,8 +173,8 @@ body {
     transform: scale(1.05);
 }
 
-.sub-folder i.fa-folder,
-.sub-folder i.fa-folder-open {
+.sub-folder i.fa-file-alt,
+.sub-folder i.fa-file {
     font-size: 2em;
     margin-bottom: 5px;
 }
@@ -191,35 +192,45 @@ body {
     display: none;
     width: 100%;
     max-width: 600px;
+    height: 400px;  /* Ocupa más espacio hacia abajo */
     margin: auto;
+    background: white;
+    color: black;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 0;
+    position: relative;
 }
 
 .details.active {
     display: block;
 }
 
-.card {
-    background-color: #555;
-    border-radius: 10px;
-    padding: 20px;
-    width: 100%;
-    margin: auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.card-header {
-    font-size: 1.5em;
-    color: #fff;
-    margin-bottom: 10px;
+.document-header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
-.card-body {
-    font-size: 1em;
-    color: #ddd;
+.document-body {
+    padding: 20px;
 }
+
+.document-button {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #444;
+    border: none;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.document-button.close { background-color: red; }
 
 .info-item {
     margin-bottom: 10px;
